@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C62F1AD228B07A700091AB13 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F1AD128B07A700091AB13 /* CameraView.swift */; };
 		C6E518F728B0348D0065B061 /* BarcodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E518F628B0348D0065B061 /* BarcodeScannerApp.swift */; };
 		C6E518F928B0348D0065B061 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E518F828B0348D0065B061 /* BarcodeScannerView.swift */; };
 		C6E518FB28B0348F0065B061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E518FA28B0348F0065B061 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C62F1AD128B07A700091AB13 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		C6E518F328B0348D0065B061 /* BarcodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E518F628B0348D0065B061 /* BarcodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerApp.swift; sourceTree = "<group>"; };
 		C6E518F828B0348D0065B061 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				C6E518F628B0348D0065B061 /* BarcodeScannerApp.swift */,
 				C6E518F828B0348D0065B061 /* BarcodeScannerView.swift */,
 				C6E5190428B03E4E0065B061 /* ScannerViewController.swift */,
+				C62F1AD128B07A700091AB13 /* CameraView.swift */,
 				C6E518FA28B0348F0065B061 /* Assets.xcassets */,
 				C6E518FC28B0348F0065B061 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E518F928B0348D0065B061 /* BarcodeScannerView.swift in Sources */,
+				C62F1AD228B07A700091AB13 /* CameraView.swift in Sources */,
 				C6E5190528B03E4E0065B061 /* ScannerViewController.swift in Sources */,
 				C6E518F728B0348D0065B061 /* BarcodeScannerApp.swift in Sources */,
 			);
