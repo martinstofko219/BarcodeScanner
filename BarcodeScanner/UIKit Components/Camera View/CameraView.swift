@@ -10,18 +10,19 @@ import SwiftUI
 struct CameraView: UIViewControllerRepresentable {
     
     @Binding var scannedBarcode: String
+    @Binding var alertItem: AlertItem?
     
-    func makeUIViewController(context: Context) -> ScannerViewController {
-        ScannerViewController(scannerDelegate: context.coordinator)
+    func makeUIViewController(context: Context) -> CameraViewController {
+        CameraViewController(scannerDelegate: context.coordinator)
     }
     
-    func updateUIViewController(_ uiViewController: ScannerViewController, context: Context) { }
+    func updateUIViewController(_ uiViewController: CameraViewController, context: Context) { }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(cameraView: self)
     }
     
-    final class Coordinator: NSObject, ScannerViewControllerDelegate {
+    final class Coordinator: NSObject, CameraViewControllerDelegate {
         private let cameraView: CameraView
         
         init(cameraView: CameraView) {
@@ -33,13 +34,12 @@ struct CameraView: UIViewControllerRepresentable {
         }
         
         func didSurface(error: CameraError) {
-            print(error.rawValue)
+            switch error {
+            case .invalidDeviceInput:
+                cameraView.alertItem = AlertContext.invalidDeviceInput
+            case .invalidScanType:
+                cameraView.alertItem = AlertContext.invalidScanType
+            }
         }
-    }
-}
-
-struct CameraView_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraView(scannedBarcode: .constant("12345"))
     }
 }

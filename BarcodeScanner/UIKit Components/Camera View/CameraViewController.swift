@@ -9,22 +9,22 @@ import UIKit
 import AVFoundation
 
 enum CameraError: String {
-    case invalidDeviceInput = "We are unable to capture the camera."
-    case invalidScannedValue = "Invalid barcode. This app only scans EAN-8 and EAN-13 barcodes."
+    case invalidDeviceInput
+    case invalidScanType
 }
 
-protocol ScannerViewControllerDelegate: AnyObject {
+protocol CameraViewControllerDelegate: AnyObject {
     func didFind(barcode: String)
     func didSurface(error: CameraError)
 }
 
-final class ScannerViewController: UIViewController {
+final class CameraViewController: UIViewController {
     
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
-    weak var scannerDelegate: ScannerViewControllerDelegate?
+    weak var scannerDelegate: CameraViewControllerDelegate?
     
-    init(scannerDelegate: ScannerViewControllerDelegate) {
+    init(scannerDelegate: CameraViewControllerDelegate) {
         super.init(nibName: nil, bundle: nil)
         self.scannerDelegate = scannerDelegate
     }
@@ -89,20 +89,20 @@ final class ScannerViewController: UIViewController {
     }
 }
 
-extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
+extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         guard let mdObject = metadataObjects.first else {
-            scannerDelegate?.didSurface(error: .invalidScannedValue)
+            scannerDelegate?.didSurface(error: .invalidScanType)
             return
         }
         
         guard let machineReadableObject = mdObject as? AVMetadataMachineReadableCodeObject else {
-            scannerDelegate?.didSurface(error: .invalidScannedValue)
+            scannerDelegate?.didSurface(error: .invalidScanType)
             return
         }
         
         guard let barcode = machineReadableObject.stringValue else {
-            scannerDelegate?.didSurface(error: .invalidScannedValue)
+            scannerDelegate?.didSurface(error: .invalidScanType)
             return
         }
         
