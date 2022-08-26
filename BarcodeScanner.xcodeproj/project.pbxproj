@@ -64,9 +64,9 @@
 		C6E518F528B0348D0065B061 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				C6E6296F28B0AA2100CE36F7 /* Alerts */,
 				C6E6296728B0A97800CE36F7 /* Views */,
 				C6E6296928B0A9BD00CE36F7 /* UIKit Components */,
-				C6E6296F28B0AA2100CE36F7 /* Alerts */,
 				C6E518F628B0348D0065B061 /* BarcodeScannerApp.swift */,
 				C6E518FA28B0348F0065B061 /* Assets.xcassets */,
 				C6E518FC28B0348F0065B061 /* Preview Content */,

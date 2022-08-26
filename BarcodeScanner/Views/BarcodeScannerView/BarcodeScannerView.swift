@@ -17,7 +17,7 @@ struct BarcodeScannerView: View {
                 Spacer()
                 
                 CameraView(scannedBarcode: $viewModel.scannedBarcode, alertItem: $viewModel.alertItem)
-                    .frame(maxWidth: .infinity, maxHeight: 300)
+                    .frame(maxHeight: 300)
                 
                 Spacer()
                 
